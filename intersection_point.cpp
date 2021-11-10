@@ -1,41 +1,53 @@
-int intersectPoint(Node* head1, Node* head2)
+
+    int intersectPoint(Node* head1, Node* head2)
 {
-    int l1,l2;
-    Node * temp;
-    for(Node *curr=head1;curr!=NULL;curr=curr->next)
+    int l1=0,l2=0;
+    Node * curr1 =head1; 
+    Node *curr2 = head2;
+    while(curr1!=NULL)
     {
+       curr1=curr1->next;
         l1++;
     }
-     for(Node *curr=head2;curr!=NULL;curr=curr->next)
+    while(curr2!=NULL)
     {
+       curr2=curr2->next;
         l2++;
     }
+     
+   Node  *temp1=head1;
+      Node *temp2=head2;
     int diff=abs(l1-l2);
     if(l1>l2)
     {
-        temp=head1;
+        
       while(diff--)
-    {
-        temp=temp->next;
-    } 
-    if(temp==head2)
-    {
-        cout<<temp->data;
+    
+        temp1=temp1->next;
+    
     }
-    }
-    else
+   
+    else if(l2>l1)
     {
-        temp=head2;
+       
       while(diff--)
+    
+        temp2=temp2->next;
+     
+    }
+    while(temp1!=temp2)
     {
-        temp=temp->next;
-    } 
-    if(temp==head1)
+        temp1=temp1->next;
+        temp2=temp2->next;
+    }
+    if(temp1)
     {
-        cout<<temp->data;
+        return temp1->data ;
     }
-    }
-    }
+
+    return -1;
+}
+    
     
 
 
