@@ -25,7 +25,7 @@ void mid()
     }
     else
     {
-        node *slow=head, *fast=head;
+        node *slow=head, *fast=head; //floyd
         while(fast!=NULL&&fast->link!=NULL)
         {
             slow=slow->link;
