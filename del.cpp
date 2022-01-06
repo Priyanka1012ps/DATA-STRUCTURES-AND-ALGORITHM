@@ -49,7 +49,7 @@ display ()
       cout << temp->data << " ";
       temp = temp->link;
     }
-    cout<<endl
+    cout<<endl;
 }
 void
 delbegin ()
