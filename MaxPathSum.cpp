@@ -13,7 +13,7 @@ public:
     int maxPathSum(TreeNode* root) {
         int res=INT_MIN;
         solve(root,res);
-        return res
+        return res;
     }
 };
 
