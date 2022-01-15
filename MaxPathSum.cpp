@@ -2,7 +2,8 @@ class Solution {
 public:
     int solve(TreeNode* root,int &res)
     {
-        if(!root) return 0
+        if(!root) 
+            return 0;
         int l=solve(root->left,res);
         int r=solve(root->right,res);
         int temp=max(max(l,r)+root->val,root->val);
