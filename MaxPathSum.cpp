@@ -8,7 +8,7 @@ public:
         int temp=max(max(l,r)+root->val,root->val);
         int ans=max(temp,l+r+root->val);
         res=max(res,ans);
-        return temp
+        return temp;
     }
     int maxPathSum(TreeNode* root) {
         int res=INT_MIN;
