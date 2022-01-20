@@ -20,6 +20,6 @@ int main()
        { // if(name[i]!='*')
        {  
            cout<<'$'; }
-       } cout<<',';
+       } cout<<','
     }
 }
