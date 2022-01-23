@@ -5,7 +5,7 @@ class Solution
     { map<int,int> m;
     queue<pair<Node *,int>> q;
     q.push({root,0}); vector<int> ans;
-    if(!root) return ans;
+    if(!root) return ans
     while(!q.empty())
     {
         Node *t=q.front().first;
