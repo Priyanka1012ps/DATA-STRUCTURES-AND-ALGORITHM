@@ -14,6 +14,6 @@ public:
             }
             mpp[nums[i]]=i;
         }
-        return ans;
+        return ans
     }
 };
