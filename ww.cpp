@@ -25,7 +25,7 @@ public:
      {
       sum=sum+water[i];
     }
-    return sum
+    return sum;
     }
 
 };
