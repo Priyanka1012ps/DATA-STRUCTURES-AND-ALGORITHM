@@ -2,7 +2,7 @@
     {
        if(!root) 
        {
-           return NULL
+           return NULL;
        }
        if(root->data==n1 or root->data==n2)
        {
