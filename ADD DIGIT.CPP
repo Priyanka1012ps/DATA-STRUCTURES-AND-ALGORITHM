@@ -10,4 +10,4 @@ public:
         else
             return (num%9);
 }
-};
+}
