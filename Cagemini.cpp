@@ -10,7 +10,7 @@ int main()
         for(int j=i+1;j<name.size();j++)
         {
             if(name[i]==name[j] && name[j]!='*')
-            {ctr++; name[j]='*';
+            {ctr++; name[j]='*'
             }
             
         } ctr=ctr+1;
