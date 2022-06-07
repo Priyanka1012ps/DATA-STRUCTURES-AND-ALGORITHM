@@ -13,7 +13,7 @@ public:
                 res=max(res,height[e]*(e-s));
                 e--;
             }
-        }
+        
         return res;
         
     }
