@@ -12,23 +12,33 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) 
     {
+//   BRUTE FORCE
+     // ListNode* temp=head;
+     //    int c=0;
+     //    while(temp!=NULL)
+     //    {
+     //        temp=temp->next;
+     //        c++;
+     //    }
+     //    cout<< c;
+     //    int half=c/2;
+     //    int l=0;
+     //    ListNode* final= head;
+     //    while(l!=half)
+     //    {
+     //        final=final->next;
+     //        l++;
+     //    }
+     //    return final;
         
-     ListNode* temp=head;
-        int c=0;
-        while(temp!=NULL)
+//         SLOW AND FAST POINTER
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while( fast!=NULL && fast->next!=NULL   )
         {
-            temp=temp->next;
-            c++;
+            slow =slow->next;
+            fast = fast->next->next;
         }
-        cout<< c;
-        int half=c/2;
-        int l=0;
-        ListNode* final= head;
-        while(l!=half)
-        {
-            final=final->next;
-            l++;
-        }
-        return final;
+        return slow;
     }
 };
