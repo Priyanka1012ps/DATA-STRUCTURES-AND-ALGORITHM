@@ -1,20 +1,46 @@
-
-class Solution {
-public:
-    bool isValid(string s)
-    {
-        stack<char>st;
-        for(int i=0;i<s.size();i++)
+class Solution
+{
+    public:
+        bool isValid(string s)
         {
-            if(s[i]=='(' ||  s[i]=='{' ||   s[i]=='[')
-                st.push(s[i]);
-            else if(st.empty())
-                return false;
-            else if(s[i]==')' && st.top()=='('||   s[i]=='}'&& st.top()=='{'  ||  s[i]==']' && st.top()=='[')
-                   st.pop() ;
-            else  return false;
+            stack<char> st;
+           	//         for(int i=0;i < s.size();i++)
+           	//         {
+           	//             if(s[i]=='(' ||  s[i]=='{' ||   s[i]=='[')
+           	//                 st.push(s[i]);
+           	//             else if(st.empty())
+           	//                 return false;
+           	//             else if(s[i]==')' && st.top()=='('||   s[i]=='}'&& st.top()=='{'  ||  s[i]==']' && st.top()=='[')
+           	//                    st.pop() ;
+           	//             else  return false;
 
-        }
+           	//         }
+           	//          
+            for (int i = 0; i < s.size(); i++)
+            {
+                if (s[i] == '('
+                    or s[i] == '['
+                    or s[i] == '{')
+
+                    st.push(s[i]);
+
+                else
+                {
+                    if (st.size()==0)
+                        return false;
+                    char c = st.top();
+                    st.pop();
+                    if ((s[i] == ')'
+                            and c == '(') or(s[i] == '}'
+                            and c == '{') or(s[i] == ']'
+                            and c == '['))
+
+                        continue;
+
+                    else
+                        return false;
+                }
+            }
             return st.empty();
-    }
+        }
 };
