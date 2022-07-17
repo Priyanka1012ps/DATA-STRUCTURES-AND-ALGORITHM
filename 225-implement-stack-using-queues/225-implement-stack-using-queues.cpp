@@ -5,34 +5,31 @@ public:
         
     }
     
-    void push(int x) {
-       q1.push(x);
-        while(!q2.empty())
+    void push(int x) 
+    {
+        q2.push(x);
+        while(!q1.empty())
         {
-            q1.push(q2.front());
-            q2.pop();
+            q2.push(q1.front());
+            q1.pop();
         }
         swap(q1,q2);
-        
     }
     
     int pop() {
-        int t= q2.front();
-        q2.pop();
-        return t;
-        
+        int l = q1.front();
+        q1.pop();
+        return l;
     }
     
     int top() {
-        
-        int l = q2.front();
-        return l ;
+        int t=q1.front();;
+        return t;
     }
     
     bool empty() {
-        return q2.empty();
+         return q1.empty();
     }
-
 };
 
 /**
