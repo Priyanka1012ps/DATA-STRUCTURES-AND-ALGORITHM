@@ -2,32 +2,42 @@ class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) 
     {
-        int left, right, tmpIx, num;
-        for(int i=0; i<nums1.size(); i++){
-            right = -1, left=nums2.size(), num = nums1[i];
-            while(++right <= --left){
-                if(num==nums2[right]) {
-                    tmpIx = right;
-                    break;
+        stack<int>st;
+        vector <int>v;
+        unordered_map<int,int>mp;
+        int n=nums2.size();
+        for(int i=n-1;i>=0;i--)
+        {
+            if(st.size()==0)
+                mp[nums2[i]]=-1;
+            
+               else if( st.size()>0 and st.top () > nums2[i])
+                {
+                    mp[nums2[i]] =st.top();
+                    // st.pop();
                 }
-                else if (num==nums2[left]) {
-                    tmpIx = left;
-                    break;
+                else if( st.size()>0 and st.top () <= nums2[i])
+                {
+                    while(st.size()>0 and st.top () <= nums2[i])
+                    {
+                        st.pop();
+                    }
+                    if(st.size()==0)
+                       mp[nums2[i]]= -1;
+                    else
+                      mp[nums2[i]] =st.top();
                 }
+            st.push(nums2[i]);
+            
+                    
             }
-            while(tmpIx < nums2.size()){
-                if (num < nums2[tmpIx]){
-                    nums1[i]=nums2[tmpIx];
-                    num=-2;
-                    break;
-                }
-                tmpIx++;
-            }
-            if(num !=-2){
-                nums1[i] = -1;
-            }
+        for(int i=0;i<nums1.size();i++)
+        {
+            v.push_back(mp[nums1[i]]);
         }
-        return nums1;
+        
+        // reverse(v.begin(),v.end());
+        return v;
     }
     
 };
