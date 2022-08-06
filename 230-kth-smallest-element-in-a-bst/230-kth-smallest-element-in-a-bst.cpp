@@ -10,27 +10,54 @@
  * };
  */
 class Solution {
-private: 
-    vector<int> res;
-    int cnt=0;
-    int ans = -1;
-    void solve(TreeNode* root, int &k)
-    {
-        if(!root) return;
-        if(cnt==k) return;
-        solve(root->left,k);
-        if(cnt<k)
-        {
-           ans = root->val;
-            cnt++;
-        }
-        solve(root->right,k); 
-    }
-	
 public:
-    int kthSmallest(TreeNode* root, int k) {
-        
-        solve(root, k);
+    int kthSmallest(TreeNode* root, int k)
+    {
+        vector<int>inorder;
+        TreeNode* curr= root;
+        int ans ;
+        int count=0;
+            while(curr!=NULL)
+            {
+        if(curr->left==NULL)
+        {
+            inorder.push_back(curr->val);
+            count++;
+           
+            if(count==k)
+            {
+                ans=curr->val;
+            }
+             curr=curr->right;
+        }
+        else
+        {
+            TreeNode*prev=curr->left;
+            while(prev->right!=NULL and prev->right!=curr)
+            {
+                prev=prev->right;
+            }
+            if(prev->right==NULL)
+            {
+                prev->right=curr;
+                curr=curr->left;
+                
+            }
+            else
+            {
+                // prev->right=NULL;
+                // inorder.push_back(curr->val);
+                // curr=curr->right;
+                 count++;
+                    prev->right = NULL;
+                    if(count == k){
+                        ans = curr->val;
+                    }
+                    curr = curr->right;
+                
+            }
+        }
+    }
         return ans;
     }
 };
