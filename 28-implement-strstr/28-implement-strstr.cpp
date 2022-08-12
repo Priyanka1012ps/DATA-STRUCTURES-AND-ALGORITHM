@@ -1,29 +1,32 @@
 class Solution {
 public:
-    int strStr(string haystack, string needle)
+    int strStr(string s, string x) 
     {
         int flag;
-        int x=haystack.size();
-        int i;
-        int y=needle.size();
-        for( i=0;i<x;i++)
+        
+        for(int i=0;i<s.size();i++)
         {
-            if(haystack[i]==needle[0])
+            if(s[i] ==x [0])
             {
-                flag=0;
-            for(int j=0;j<y;j++)
+             flag=0;
+            
+            for(int j=0;j<x.size();j++)
             {
-                if(haystack[i+j]!=needle[j])
+                if(s[i+j]!=x[j])
                 {
                     flag=1;
                     break;
                 }
+                
             }
-        }
+           
+            }
+        
+            
              if(flag==0)
-        return i;
-    }
-       
+                return i;
+    }  
+        
         return -1;
     }
 };
