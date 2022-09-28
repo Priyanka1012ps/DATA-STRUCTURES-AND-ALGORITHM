@@ -15,7 +15,7 @@ public:
         //     mpp[nums[i]]=i;
         // }
         // return ans;
-        vector<int>ans;
+        vector<int>ans
         unordered_map<int,int>mp;
         for(int i=0;i<nums.size();i++)
         {
