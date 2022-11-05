@@ -1,29 +1,23 @@
-class Solution{
+class Solution {
 public:
-	void nextPermutation(vector<int> &nums){
- 		int n = nums.size();
-// 		bool flag = false;
-
-// 		for (int i = n - 1; i > 0; i--){
-// 			if (nums[i] > nums[i - 1]){
-// 				flag = true;
-// 				int pivot = i - 1, idx = i;
-// 				int min_element_greater_than_pivot = nums[idx];
-
-// 				for (int j = pivot + 1; j < n; j++){
-// 					if (nums[j] > nums[pivot] && nums[j] <= min_element_greater_than_pivot){
-// 						min_element_greater_than_pivot = nums[j];
-// 						idx = j;
-// 					}
-// 				}
-// 				swap(nums[pivot], nums[idx]);
-// 				reverse(nums.begin() + pivot + 1, nums.end());
-// 				break;
-// 			}
-// 		}
-// 		if (!flag)
-// 			reverse(nums.begin(), nums.end());
-// 	}
-      next_permutation(nums.begin(),nums.end());
+    void nextPermutation(vector<int>& nums) {
+       
+     int n = nums.size(), k, l;
+    	for (k = n - 2; k >= 0; k--) {
+            if (nums[k] < nums[k + 1]) {
+                break;
+            }
+        }
+    	if (k < 0) {
+    	    reverse(nums.begin(), nums.end());
+    	} else {
+    	    for (l = n - 1; l > k; l--) {
+                if (nums[l] > nums[k]) {
+                    break;
+                }
+            } 
+    	    swap(nums[k], nums[l]);
+    	    reverse(nums.begin() + k + 1, nums.end());
+        }
     }
 };
