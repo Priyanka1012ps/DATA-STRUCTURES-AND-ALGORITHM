@@ -4,7 +4,7 @@ public:
     {
         
 //         if(s.size()==0)
-//             return 0;
+            return 0;
         
 //         int i=0;
 //         while(i<s.size() and s[i]==' ')
