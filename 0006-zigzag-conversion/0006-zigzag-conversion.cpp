@@ -1,22 +1,20 @@
 class Solution {
 public:
-    string convert(string s, int n) {
-         string ans[n];
-        int m=s.size();
-        for(int i=0;i<m;){
-            for(int j=0;j<n&&i<m;j++,i++){
-                ans[j].push_back(s[i]);
-            }
-            int t=n-2;
-            for(int k=0;k<t&&i<m;k++,i++){
-                ans[t-k].push_back(s[i]);
+    string convert(string s, int numRows) {
+        if (numRows == 1) return s;
+        string res;        
+        int i;
+        for (int step = 0; step < numRows; step++) {
+            i = step;
+            while (i < s.length()) {
+                res.push_back(s[i]);
+                i += numRows*2 - 2;
+                if (step != 0 && step != numRows - 1) {
+                    int i0 = i - step * 2;
+                    if (i0 < s.length()) res.push_back(s[i0]);
+                }
             }
         }
-        string r="";
-        for(auto &i:ans){
-            for(char c:i)
-                r+=c;
-        }
-        return r;
+        return res;
     }
 };
