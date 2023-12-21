@@ -11,24 +11,57 @@
  */
 class Solution {
 public:
-    void res(vector<int> & v, TreeNode* root)
-    {
-        if(root==NULL)
-        {  
-            return ;
-        }
-        else{
+    // void res(vector<int> & v, TreeNode* root)
+    // {
+//         if(root==NULL)
+//         {  
+//             return ;
+//         }
+//         else{
             
-     res(v,root->left);
-        v.push_back(root->val);
-         res(v,root->right);
-        }
+//      res(v,root->left);
+//         v.push_back(root->val);
+//          res(v,root->right);
+//         }
         
-    }
+//     }
     vector<int> inorderTraversal(TreeNode* root) {
-         vector<int>result;
-  res(result,root);
-        return result;
+//          vector<int>result;
+//   res(result,root);
+//         return result;
         
+TreeNode* cur=root;
+    vector<int>inorder;
+    while(cur!=NULL)
+    {
+    if(cur->left==NULL)
+    {
+        inorder.push_back(cur->val);
+        cur=cur->right;
+    }
+       else
+       {
+           TreeNode* prev=cur->left;
+           
+          while(prev->right and prev->right!=cur)
+           {
+               prev=prev->right;
+               // cur=cur->left;
+           }
+           if(prev->right==NULL)
+           {
+               prev->right=cur;
+               cur=cur->left;
+           }
+           else
+           {
+               prev->right=NULL;
+               inorder.push_back(cur->val);
+               cur=cur->right;
+           }
+       }
+           
+    }
+ return inorder;
     }
 };
