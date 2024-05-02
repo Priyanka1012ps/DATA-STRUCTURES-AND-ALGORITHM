@@ -8,9 +8,14 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+
+
+
 class Solution {
 public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
+    ListNode* removeNthFromEnd(ListNode* head, int n) 
+    {
         
         ListNode* start=new ListNode;
         start->next=head;
@@ -31,6 +36,7 @@ public:
         slow->next=slow->next->next;
         
         return start->next;
+        
              
         
     }
